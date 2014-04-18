@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=windows-1250">
+    <script src="http://192.168.1.53:2424/js/ideino-linino-lib/socket.io.js"></script>
+    <script src="http://192.168.1.53:2424/js/ideino-linino-lib/ideino-linino-lib-client.js"></script>
+    
+    <style>
+        .txtbox{
+            width: 350px; 
+            height: 50px;
+            border: 1px solid gray;
+            border-radius: 5;
+            font-family: courier;
+            font-size:   1.6em; 
+            text-align:center;
+        }
+        
+        .button{
+            width: 150px; 
+            height: 45px;
+            border: 1px solid gray;
+            border-radius: 5;
+            font-family: courier;
+            font-size:   1.2em; 
+            text-align:center;
+        }
+        
+        .desc{
+            font-family: courier;
+            font-size:   0.8em;
+            color: gray;
+        
+        }
+        
+    </style>
+
+  </head>
+  
+  <body>
+    <script>    
+		window.onload = connect('192.168.1.53');
+			
+		function buttonclick(obj){
+			connect('192.168.1.53');
+		}
+		
+		function dread()
+		{
+			digitalRead(document.getElementById('txtPin').value , function(myData){ 
+                document.getElementById('txtValue').value = myData.value; 
+            });
+		}
+		
+		function dwrite()
+		{
+			digitalWrite(document.getElementById('txtPin').value , document.getElementById('txtValue').value );
+		}
+		
+		function aread()
+		{
+			analogRead(document.getElementById('txtPin').value , function(myData){ 
+                document.getElementById('txtValue').value = myData.value; 
+            });
+		}
+		
+		function awrite()
+		{
+			analogWrite(document.getElementById('txtPin').value , document.getElementById('txtValue').value );
+		}
+		
+		function pmode()
+		{
+			pinMode(document.getElementById('txtPin').value , document.getElementById('txtValue').value );
+		}
+    
+    	function swrite()
+		{
+			servoWrite(document.getElementById('txtPin').value , document.getElementById('txtValue').value );
+		}
+    
+    </script>
+    
+    <p id="label0"></p>
+    <span class="desc">Insert pin - ie: D13 for digital pin 13, A0 for analog pin 0</span><br>
+    <input type="text" id="txtPin" class="txtbox" placeholder="D13">
+    <br/><br/>
+    <span class="desc">Insert mode/value - ie: output to set a pin in output mode, 1 to set the value to the pin </span><br>
+	<input type="label" id="txtValue" class="txtbox" placeholder="1">
+    <br/><br/><br/><br/>
+    <input type="button" id="buttonPM" class="button" value="pinMode" onclick="pmode()">
+	<br/><br/>
+    <input type="button" id="buttonDR" class="button" value="digitalRead" onclick="dread()">
+	<input type="button" id="buttonDW" class="button" value="digitalWrite" onclick="dwrite()">
+	<br/><br/>
+    <input type="button" id="buttonAR" class="button" value="analogRead" onclick="aread()">
+	<input type="button" id="buttonAW" class="button"value="analogWrite" onclick="awrite()">
+	<br/><br/>
+    <input type="button" id="buttonSW" class="button" value="servoWrite" onclick="swrite()">
+  </body>
+
+</html>
