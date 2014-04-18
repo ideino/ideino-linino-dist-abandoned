@@ -3,8 +3,8 @@
   
   <head>
     <meta http-equiv="content-type" content="text/html; charset=windows-1250">
-    <script src="http://192.168.1.53:2424/js/ideino-linino-lib/socket.io.js"></script>
-    <script src="http://192.168.1.53:2424/js/ideino-linino-lib/ideino-linino-lib-client.js"></script>
+    <script src="http://linino.local:2424/js/ideino-linino-lib/socket.io.js"></script>
+    <script src="http://linino.local:2424/js/ideino-linino-lib/ideino-linino-lib-client.js"></script>
     
     <style>
         .txtbox{
@@ -40,11 +40,7 @@
   
   <body>
     <script>    
-		window.onload = connect('192.168.1.53');
-			
-		function buttonclick(obj){
-			connect('192.168.1.53');
-		}
+		window.onload = connect('linino.local');
 		
 		function dread()
 		{
