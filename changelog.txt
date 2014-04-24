@@ -3,4 +3,10 @@ v0.0.4 - changelog
 - upd: change the python bridge command line arguments and the call from the board.
 - upd: improve the python bridge with dynamic array for the pin layout.
 - fix: fixed server centric htmlboard read function to work with the new client connections.
-- add: firmata_spi.hex.
+- add: added firmata_spi.hex file.
+
+- fix: fixing page path in example projects for running at boot (autorun mode).
+- upd: added the link to the github page of the authors in some file. 
+- upd: changed the names of the sample files.
+- add: added function for blinking a led on the board.
+- add: added a 2 seconds fast blinking after board connection success.

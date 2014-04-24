@@ -1,3 +1,9 @@
+/***
+ * file: ideino-linino-lib-client.js
+ * authors: https://github.com/sebba,
+ *			https://github.com/quasto
+ ***/
+ 
 var socket,
 	port = '9812',
 	isConnected=false,
