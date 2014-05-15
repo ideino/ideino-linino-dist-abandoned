@@ -46,8 +46,9 @@
 		{
 			digitalRead(document.getElementById('txtPin').value , function(myData){ 
                 document.getElementById('txtValue').value = myData.value; 
+                console.log("dgital read "+myData.value);
             });
-		}
+        }
 		
 		function dwrite()
 		{

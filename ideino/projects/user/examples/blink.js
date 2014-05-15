@@ -19,6 +19,4 @@ board.connect( function(){
         board.digitalWrite(pin13.pin,ctrl);
 	    ctrl = ctrl == board.HIGH ? board.LOW : board.HIGH;
     },500);
-});	
-
-
+});

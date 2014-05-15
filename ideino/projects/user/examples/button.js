@@ -1,11 +1,11 @@
 /***
  * file: button.js
  * version: 2.0
- * author: sergio tomasello - https://github.com/quasto
+ * authors: https://github.com/quasto
  * license: mit
  * description: in this example there is a button connected at digital pin 8.
- *      when the button is pressed the led on board (digital pin 13) will turn on, when the button 
- *      is released the led will turn off.
+ *      when the button is pressed the led on board (digital pin 13) will turn on, 
+ *      when the button is released the led will turn off.
  ***/
 
 var board = require('ideino-linino-lib').Board;

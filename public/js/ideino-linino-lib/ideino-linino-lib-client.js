@@ -1,3 +1,9 @@
+/***
+ * file: ideino-linino-lib-client.js
+ * authors: https://github.com/sebba,
+ *			https://github.com/quasto
+ ***/
+ 
 var socket,
 	port = '9812',
 	isConnected=false,
@@ -7,7 +13,6 @@ function connect(host)
 {
 	var url = 'http://' + host + ':' + port;
 	socket = io.connect(url,{ rememberTransport: false, transports: ['xhr-polling']});
-	
 	socket.on('connect', function(){
 		console.log("Connected");
 		isConnected = socket.socket.connected;
@@ -24,7 +29,7 @@ function connect(host)
 			{
 				var response = eval( "document.getElementById('"+command.id+"')."+command.param );
 				var json_response = {value: response};
-				socket.emit('read-back-'+command.id, json_response);
+				socket.emit('read-back-' + command.id + '-' + command.param, json_response);
 			}
 			else if(command.cmd == 'write')
 				eval( "try{ document.getElementById('"+command.id+"')."+command.param+" = "+command.value +"}catch(error){ console.log(error);} ");
@@ -41,8 +46,7 @@ function connect(host)
 
 
 
-function digitalRead(pin, callback)
-{
+function digitalRead(pin, callback){
 	if(isConnected)
 	{
 		var tPin = testPin(layout, pin);
@@ -60,9 +64,7 @@ function digitalRead(pin, callback)
 	else
 		console.log('No connection revealed');
 }
-
-function digitalWrite(pin, value)
-{
+function digitalWrite(pin, value){
 	if(isConnected)
 	{
 		var tPin = testPin(layout,pin);
@@ -75,9 +77,7 @@ function digitalWrite(pin, value)
 	else
 		console.log('No connection revealed');
 }
-
- function analogRead(pin, callback)
-{
+function analogRead(pin, callback){
 	if(isConnected)
 	{
 		var tPin = testPin(layout,pin);
@@ -94,9 +94,7 @@ function digitalWrite(pin, value)
 	else
 		console.log('No connection revealed');
 }
-
-function analogWrite(pin, value)
-{
+function analogWrite(pin, value){
 	if(isConnected)
 	{
 		var tPin = testPin(layout,pin);
@@ -109,9 +107,7 @@ function analogWrite(pin, value)
 	else
 		console.log('No connection revealed');
 }
-
-function servoWrite(pin, angle)
-{
+function servoWrite(pin, angle){
 	if(isConnected)
 	{
 		var tPin = testPin(layout,pin);
@@ -130,9 +126,7 @@ function servoWrite(pin, angle)
 	else
 		console.log('No connection revealed');
 }
-
-function virtualRead(pin)
-{
+function virtualRead(pin){
 	if(isConnected)
 	{
 		var tPin = testPin(layout,pin);
@@ -149,9 +143,7 @@ function virtualRead(pin)
 	else
 		console.log('No connection revealed');
 }
-
-function virtualWrite(pin, value)
-{
+function virtualWrite(pin, value){
 	if(isConnected)
 	{
 		var tPin = testPin(layout,pin);
@@ -170,11 +162,7 @@ function virtualWrite(pin, value)
 	else
 		console.log('No connection revealed');
 }
-
-
-
-function pinMode(pin, mode)
-{
+function pinMode(pin, mode){
 	if(isConnected)
 	{
 		var tPin = testPin(layout, pin);
@@ -189,8 +177,7 @@ function pinMode(pin, mode)
 		console.log('No connection revealed');
 }
 
-function getLayout()
-{
+function getLayout(){
 	if(isConnected)
 	{
 		socket.emit('info', { info : "layout"});
@@ -201,9 +188,7 @@ function getLayout()
 	else
 		console.log('No connection revealed');
 }
-
-function testMode(mode)
-{
+function testMode(mode){
 	mode = mode.toUpperCase();
 	
 	if(mode == 'INPUT' || mode == 'OUTPUT' || mode == 'PWM' || mode == 'SERVO' )
@@ -214,9 +199,7 @@ function testMode(mode)
 		return ;
 	}
 }
-
-function testPin(obj, val)
-{
+function testPin(obj, val){
 	val = val.toUpperCase();
     for(var prop in obj) 
 	{
@@ -225,9 +208,8 @@ function testPin(obj, val)
 			return val;   
         }
     }
-	return false;
+	return ;
 }
-
 
 function writeData(id, param, value){
 	
@@ -236,6 +218,6 @@ function writeData(id, param, value){
 							param:	param, 
 							value:	value
 							};
-		socket.emit('read-back-'+id, json_message);
+		socket.emit('read-back-' + id + '-' + param, json_message);
 	}
 }

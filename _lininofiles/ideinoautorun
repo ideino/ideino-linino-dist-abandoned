@@ -1,6 +1,6 @@
 #!/bin/sh /etc/rc.common
-# authors: arturo rinaldi, sergio tomasello
-# license: mit
+# authors: 	https://github.com/artynet
+#			https://github.com/quasto
 
 START=99
 
@@ -13,7 +13,7 @@ CONFIG_FILE=/opt/ideino-linino/autorun/autorun.conf
 
 boot () {
 	
-	sleep 90
+	sleep 30
 	if [ -f $CONFIG_FILE ]
 	then
 			

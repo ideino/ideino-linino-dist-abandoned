@@ -1,3 +1,7 @@
+/***
+ * file: ideino.js
+ * authors: https://github.com/quasto
+ ***/
 //document.location.reload(true);
 var urlIdeino = "http://"+window.location.hostname+":2424/";
 var formIdeino = document.getElementById("ideinoform");

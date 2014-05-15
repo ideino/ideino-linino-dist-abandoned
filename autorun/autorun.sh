@@ -1,5 +1,6 @@
 #!/bin/sh /etc/rc.common
-# authors: arturo rinaldi, sergio tomasello
+# authors:  https://github.com/artynet
+#			https://github.com/quasto
 # license: mit
 
 export PATH=/usr/bin:/bin:/sbin:/opt/usr/bin
