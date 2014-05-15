@@ -20,7 +20,7 @@ var board = require('ideino-linino-lib').Board,
 board.connect(function(){
   //SIMPLE HTTP SERVER
   http.createServer(function(req, res) {
-    var page = path.join(__dirname, 'html', 'page-client-side.html');
+    var page = path.join(__dirname, 'html', 'program-web.html');
     fs.readFile(page, function(err, contents) {
       if (!err) {
         res.writeHead(200, {'Content-Type': 'text/HTML'});

@@ -26,7 +26,7 @@ board.connect(function(){
     //SIMPLE HTTP SERVER
     var file, page;
     http.createServer(function(req, res) {
-        page = path.join(__dirname,'html','page-server-side-read.html');
+        page = path.join(__dirname,'html','button-web.html');
         file = fs.readFileSync(page);
         res.writeHead(200, {'Content-Type': 'text/HTML'});
         res.end(file);

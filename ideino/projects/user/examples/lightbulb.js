@@ -37,7 +37,7 @@ board.connect(function(){
             res.writeHead(200, {'Content-Type': 'image/jpeg'});
         }
         else{
-            page = path.join(__dirname,'html','page-server-side-write.html');
+            page = path.join(__dirname,'html','lightbulb.html');
             file = fs.readFileSync(page); 
             res.writeHead(200, {'Content-Type': 'text/HTML'});
         }
