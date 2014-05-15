@@ -10,3 +10,11 @@ v0.0.4 - changelog
 - upd: changed the names of the sample files.
 - add: added function for blinking a led on the board.
 - add: added a 2 seconds fast blinking after board connection success.
+
+v0.0.4.1
+- fix: set eventEmitter max listener unlimited
+- fix: login.html update a reference to javascript library, from internet to local
+- fix: increment the gap of the bridge from 4 to 15 for the analog pins
+- add: added the firmata spi sketch (.ino and .hex) and spi library in the ext directory
+
+- upd: every files of ideino with the reference of noide and the mit license

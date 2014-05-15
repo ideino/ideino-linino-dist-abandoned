@@ -1,7 +1,14 @@
 #!/bin/sh /etc/rc.common
 # authors:  https://github.com/artynet
 #			https://github.com/quasto
-# license: mit
+
+#	
+#	Ideino is based on Noide project by Dave Stone https://github.com/davidjamesstone/noide. 
+#	Ideino https://github.com/ideino/ideino-linino-dist is released under the MIT License:
+#	
+#   Copyright (C) 2014 by Ideino
+#
+#
 
 export PATH=/usr/bin:/bin:/sbin:/opt/usr/bin
 AUTODIR=/opt/ideino-linino/autorun
