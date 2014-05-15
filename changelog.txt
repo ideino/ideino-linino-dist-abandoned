@@ -18,3 +18,5 @@ v0.0.4.1
 - add: added the firmata spi sketch (.ino and .hex) and spi library in the ext directory
 
 - upd: every files of ideino with the reference of noide and the mit license
+
+- upd: renamed example files
