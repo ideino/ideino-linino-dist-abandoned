@@ -1,7 +1,7 @@
 /***
- * file: html-server-side-read.js
- * releated files: ./html/page-server-side-read.html
- * version: 1.0
+ * file: button-web.js
+ * releated files: ./html/button-web.html
+ * version: 2.0
  * authors: https://github.com/quasto, 
  *          https://github.com/sebba
  * license: mit
@@ -11,9 +11,10 @@
  *              will read the param value of the button and send the LOW or HIGH 
  *              value to the digital LED 13.
  ***/
- 
-var board = require('ideino-linino-lib').Board,
-    html = require('ideino-linino-lib').Htmlboard,
+
+var linino = require('ideino-linino-lib'),
+    board = new linino.Board(),
+    html = new linino.Htmlboard(),
     fs = require('fs'),
     http = require('http'),
     path = require('path');

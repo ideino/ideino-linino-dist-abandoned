@@ -1,7 +1,7 @@
 /***
- * file: html-client-side.js
- * releated files: ./html/page-client-centric.html
- * version: 1.0
+ * file: program-web.js
+ * releated files: ./html/program-web.html
+ * version: 2.0
  * authors: https://github.com/quasto, 
  *          https://github.com/sebba
  * license: mit
@@ -10,9 +10,10 @@
  *              allows the user to send the common commands directly to the board, 
  *              ie: pinMode, digitalRead, digitalWrite, etc..
  ***/
-
-var board = require('ideino-linino-lib').Board,
-    html = require('ideino-linino-lib').Htmlboard,
+ 
+var linino = require('ideino-linino-lib'),
+    board = new linino.Board(),
+    html = new linino.Htmlboard(),
     fs = require('fs'),
     http = require('http'),
     path = require('path');

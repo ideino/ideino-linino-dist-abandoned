@@ -1,6 +1,6 @@
 /***
  * file: button.js
- * version: 2.0
+ * version: 3.0
  * authors: https://github.com/quasto
  * license: mit
  * description: in this example there is a button connected at digital pin 8.
@@ -8,7 +8,8 @@
  *      when the button is released the led will turn off.
  ***/
 
-var board = require('ideino-linino-lib').Board;
+var linino = require('ideino-linino-lib'),
+    board = new linino.Board({logger: {level:'error'}});
 
 //local variable 
 var pin13   = { pin: board.pin.digital.D13 , value : 0 },
