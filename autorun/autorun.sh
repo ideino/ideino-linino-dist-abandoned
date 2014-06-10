@@ -48,9 +48,16 @@ then
 		
 		###UPDATING CONFIGURATION FILE WITH NEW STARTUP NODE APPLICATION		
 		NAME=$AUTODIR"/"`basename "$1"`"/""$2"
+		#pwdesc2=$(echo $NAME | sed 's_/_\\/_g')
+		#pwdesc1=$(echo $IDEINOAPP | sed 's_/_\\/_g')
+		#sed -i -e "s/IDEINOAPP=${pwdesc1}/IDEINOAPP=${pwdesc2}/g" $CONFIG_FILE
+		
 		pwdesc2=$(echo $NAME | sed 's_/_\\/_g')
+		pwdesc2_temp=$(echo $pwdesc2 | sed 's/ /\\\\ /g')
 		pwdesc1=$(echo $IDEINOAPP | sed 's_/_\\/_g')
-		sed -i -e "s/IDEINOAPP=${pwdesc1}/IDEINOAPP=${pwdesc2}/g" $CONFIG_FILE
+		pwdesc1_temp=$(echo $pwdesc1 | sed 's/ /\\\\ /g')
+		sed -i -e "s/IDEINOAPP=${pwdesc1_temp}/IDEINOAPP=${pwdesc2_temp}/g" $CONFIG_FILE		
+		
 		sleep 3
 		echo $2' will run automatically at next startup!'
 	fi

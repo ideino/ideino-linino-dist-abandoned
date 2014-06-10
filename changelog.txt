@@ -23,5 +23,16 @@ v0.0.4.1
 
 v0.0.5
 - upd: setted board and htmlboard as class, changing the import mechanism in the applications
+- upd: set configuration in costructor for the Board object
 - upd: example project
 - add: blink-web application example
+
+- fix: board.js if the connection to the bridge fails now stop correctly the bridge-firmata script
+- fix: autorun.sh now can manage path with blank chars
+
+todo:
+	aggiungere alcuni dei parametri anche al bridge python...
+	importate gli sketch (hex) 115200 br sia pullup che pulldown ATH0
+	aggiungere uno sleep 5 sec nel setup di tutti gli sketch firmata
+	autorun.sh gestire il basename perchè non funziona quando ci sono app in autorun in cartelle annidate.
+	ideinoautorun se il path contiene spazi vuoti nel, anche con la modifica 0.0.5.6 non funziona
