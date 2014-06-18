@@ -9,11 +9,13 @@
 
 * fix: autorun now can manage more depth folders
 * fix: projects, folders and files name blank chars replacement
-* fix: added serial (port, baudrate) and resolution (for analog pin) parameters for the bridge
+* upd: added serial (port, baudrate) and resolution (for analog pin) parameters for the bridge
 * add: demo project: ropocop servotwins and drone
 * add: firmata ath0 (.hex and .ino) sketches
 * upd: name of template file.
 * fix: fixed the mechanism for connect to the bridge
+
+* upd: added sampling period parameter for the bridge
 
 0.0.4.1
 ==================
