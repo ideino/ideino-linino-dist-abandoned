@@ -1,7 +1,7 @@
 /***
- * file: html-server-side-write.js
- * releated files: ./html/page-server-side-write.html
- * version: 1.0
+ * file: lightbulb.js
+ * releated files: ./html/lightbulb.html
+ * version: 2.0
  * authors: https://github.com/quasto, 
  *          https://github.com/sebba
  * license: mit
@@ -12,8 +12,9 @@
  *              of the light bulb on the page will change.
  ***/
  
-var board = require('ideino-linino-lib').Board,
-    html = require('ideino-linino-lib').Htmlboard,
+var linino = require('ideino-linino-lib'),
+    board = new linino.Board(),
+    html = new linino.Htmlboard(),
     fs = require('fs'),
     http = require('http'),
     url = require('url'),
@@ -21,10 +22,8 @@ var board = require('ideino-linino-lib').Board,
     
 //local variable 
 var pin8    = { pin: board.pin.digital.D8, value : 0 },
-    html_img_id = 'lightbulb',
-    html_txt_id = 'txtbox1';
-    
-var light_off ='"/html/img/lightbulb-off.jpg"',
+    html_img_id = 'lightbulb',    
+    light_off ='"/html/img/lightbulb-off.jpg"',
     light_on = '"/html/img/lightbulb-on.jpg"';
 
 board.connect(function(){

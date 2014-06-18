@@ -1,22 +1,29 @@
 /***
  * file: blink.js
- * version: 2.0
- * author: sergio tomasello - https://github.com/quasto
+ * version: 3.0
+ * author: https://github.com/quasto
  * license: mit
  * description: in this example the board led on digital pin 13 will 
  *      blink every 1 second .
  ***/
  
-var board = require('ideino-linino-lib').Board;
+var linino = require('ideino-linino-lib'),
+    board = new linino.Board();
 
 var pin13 = { pin: board.pin.digital.D13, value : 0 },
-    ctrl = board.LOW;
+    ctrl = true;
     
 board.connect( function(){  
     board.pinMode(pin13.pin, board.MODES.OUTPUT);
     
     setInterval(function(){
-        board.digitalWrite(pin13.pin,ctrl);
-	    ctrl = ctrl == board.HIGH ? board.LOW : board.HIGH;
-    },500);
+        if(ctrl){
+            board.digitalWrite(pin13.pin, board.HIGH);
+            ctrl = false;
+        }
+        else{
+            board.digitalWrite(pin13.pin, board.LOW);
+            ctrl = true;
+        }
+    },1000);
 });

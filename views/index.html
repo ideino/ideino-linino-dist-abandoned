@@ -57,6 +57,7 @@
 	function reqNewDir(){
 		bootbox.prompt("What is the name of the new project ?", function(result){
 			if (result) {
+				result = result.replace(/ /g, '');//trim blank chars
 				var xmlHttp = null;
 				xmlHttp = new XMLHttpRequest();
 				xmlHttp.open( "GET", "/account/?nwwproj=" + result, false );
