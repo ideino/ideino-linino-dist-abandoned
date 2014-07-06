@@ -1,3 +1,15 @@
+0.0.6
+==================
+* upd: use mcu-io technology instead of bridge firmata
+
+* upd: use mcu-io with poll linux api, remove old bridge firmata reference
+
+* upd: remove console.log and upadate unix format end of line
+
+0.0.5.1
+==================
+* add: automatic connection retry to the bridge
+
 0.0.5
 ==================
 * upd: setted board and htmlboard as class, changing the import mechanism in the applications

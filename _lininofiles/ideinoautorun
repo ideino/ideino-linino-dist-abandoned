@@ -9,7 +9,6 @@
 #   Copyright (C) 2014 by Ideino
 #
 #
-
 START=99
 
 export PATH=/usr/bin:/bin:/sbin:/opt/usr/bin

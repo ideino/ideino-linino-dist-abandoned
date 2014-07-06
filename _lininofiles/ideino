@@ -8,7 +8,6 @@
 #   Copyright (C) 2014 by Ideino
 #
 #
-
 export PATH=/usr/bin:/bin:/sbin:/opt/usr/bin
 export NODEJS=/opt/usr/bin/node
 export LD_LIBRARY_PATH=/opt/usr/lib
