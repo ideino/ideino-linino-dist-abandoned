@@ -20,7 +20,7 @@ var linino = require('ideino-linino-lib'),
     path = require('path');
     
 //local variable 
-var pin13   = { pin: board.pin.digital.D13 , value : 0 },
+var pin13 = board.pin.digital.D13,
     html_btn_id = 'btnswitch';
     
 board.connect(function(){
@@ -33,12 +33,12 @@ board.connect(function(){
         res.end(file);
     }).listen(1337);
   
-    board.pinMode(pin13.pin, board.MODES.OUTPUT);    
+    board.pinMode(pin13, board.MODES.OUTPUT);    
     
     html.read(html_btn_id,'value',function(data){
         if(data.value == 'ON')
-            board.digitalWrite(pin13.pin,board.HIGH);
+            board.digitalWrite(pin13, board.HIGH);
         else
-            board.digitalWrite(pin13.pin,board.LOW);
+            board.digitalWrite(pin13, board.LOW);
     });  
 });

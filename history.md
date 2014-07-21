@@ -1,3 +1,8 @@
+lininoIO
+==================
+* upd: automatic layout board model recognition
+* upd: function (sync and async) with optional callback
+* upd: update examples project.
 0.0.6
 ==================
 * upd: use mcu-io technology instead of bridge firmata

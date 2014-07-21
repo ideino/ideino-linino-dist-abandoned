@@ -15,7 +15,7 @@ var linino = require('ideino-linino-lib'),
     url = require('url'),
     path = require('path');
     
-var pin13 = { pin: board.pin.digital.D13, value : 0 },
+var pin13 = board.pin.digital.D13,
     html_img_id = 'lightbulb',    
     light_off ='"/html/img/lightbulb-off.jpg"',
     light_on = '"/html/img/lightbulb-on.jpg"',
@@ -39,10 +39,10 @@ board.connect( function(){
         res.end(file);        
     }).listen(1337);
     
-    board.pinMode(pin13.pin, board.MODES.OUTPUT);
+    board.pinMode(pin13, board.MODES.OUTPUT);
     
     setInterval(function(){
-        board.digitalWrite(pin13.pin,ctrl);
+        board.digitalWrite(pin13, ctrl);
         html.write(html_img_id,'src', light);
         light = ctrl == board.HIGH ? light_off : light_on;
         ctrl = ctrl == board.HIGH ? board.LOW : board.HIGH;        

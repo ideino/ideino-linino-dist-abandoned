@@ -11,15 +11,15 @@
 var linino = require('ideino-linino-lib'),
     board = new linino.Board({logger: {level:'error'}});
 
-//local variable 
-var pin13   = { pin: board.pin.digital.D13 , value : 0 },
-    pin8    = { pin: board.pin.digital.D8 , value : 0 };
-    
+//digital pins
+var pin13 = board.pin.digital.D13,
+    pin8 = board.pin.digital.D5;
+        
 board.connect( function(){
-    board.pinMode(pin13.pin, board.MODES.OUTPUT);
-    board.pinMode(pin8.pin, board.MODES.INPUT);
+    board.pinMode(pin13, board.MODES.OUTPUT);
+    board.pinMode(pin8, board.MODES.INPUT);
  
-    board.digitalRead(pin8.pin, function(data){
-        board.digitalWrite(pin13.pin,data.value);
+    board.digitalRead(pin8, function(value){
+        board.digitalWrite(pin13,value);
     });    
 });

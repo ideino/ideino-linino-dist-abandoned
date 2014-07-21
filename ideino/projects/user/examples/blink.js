@@ -10,19 +10,19 @@
 var linino = require('ideino-linino-lib'),
     board = new linino.Board();
 
-var pin13 = { pin: board.pin.digital.D13, value : 0 },
+var pin13 = board.pin.digital.D13,
     ctrl = true;
     
-board.connect( function(){  
-    board.pinMode(pin13.pin, board.MODES.OUTPUT);
+board.connect( function(){
+    board.pinMode(pin13, board.MODES.OUTPUT);
     
     setInterval(function(){
         if(ctrl){
-            board.digitalWrite(pin13.pin, board.HIGH);
+            board.digitalWrite(pin13, board.HIGH);
             ctrl = false;
         }
         else{
-            board.digitalWrite(pin13.pin, board.LOW);
+            board.digitalWrite(pin13, board.LOW);
             ctrl = true;
         }
     },1000);

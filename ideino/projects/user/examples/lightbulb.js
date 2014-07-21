@@ -21,7 +21,7 @@ var linino = require('ideino-linino-lib'),
     path = require('path');
     
 //local variable 
-var pin8    = { pin: board.pin.digital.D8, value : 0 },
+var pin8    = board.pin.digital.D8,,
     html_img_id = 'lightbulb',    
     light_off ='"/html/img/lightbulb-off.jpg"',
     light_on = '"/html/img/lightbulb-on.jpg"';
@@ -43,8 +43,8 @@ board.connect(function(){
         res.end(file);        
     }).listen(1337);
   
-    board.pinMode(pin8.pin, board.MODES.INPUT);   
-    board.digitalRead(pin8.pin, function( data ){
+    board.pinMode(pin8, board.MODES.INPUT);   
+    board.digitalRead(pin8, function( data ){
         if(data.value === 0)
             html.write(html_img_id,'src',light_off);
         else
