@@ -3,6 +3,9 @@ lininoIO
 * upd: automatic layout board model recognition
 * upd: function (sync and async) with optional callback
 * upd: update examples project.
+
+* upd: introducing servo lib
+
 0.0.6
 ==================
 * upd: use mcu-io technology instead of bridge firmata
