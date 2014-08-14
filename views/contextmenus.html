@@ -5,6 +5,26 @@
    Copyright (C) 2014 by Ideino
 
 -->
+
+<script>
+
+var trigger_element;
+function getFileName(e)
+{
+    if (!e) var e = window.event;
+
+    var right_click = (e.which ? (e.which == 3) : (e.button == 2));
+
+    if (right_click)
+    {
+		trigger_element = e.srcElement.text;
+		alert("evento generato da : " + trigger_element);
+        return false;
+    }
+}
+
+</script>
+
 <div class="explorer-file-menu dropdown">
   <ul class="dropdown-menu" role="menu">
     <li><a href="#" data-action="open">Open</a></li>
@@ -14,8 +34,12 @@
     <li class="run divider"></li>
     <li class="run"><a href="#" data-action="run" title="Run file and output to console">Run</a></li>
     <li class="run"><a href="#" data-action="runadvanced" title="Set debug and start options">Run + Debug</a></li>
+	<li class="divider"></li>
+	<li><a href="#" data-action="runeditor" title="Create html file">Open HTMLEditor</a></li>
 	<li class="run divider"></li>
 	<li class="run"><a href="#" data-action="runauto" title="Put in autorun at boot">Autorun</a></li>
+	<!--li class="run divider"></li-->
+	
     <li class="install divider"></li>
     <li class="install"><a href="#" data-action="install" title="Install package dependencies">Install</a></li>
   </ul>
@@ -24,7 +48,7 @@
   <ul class="dropdown-menu" role="menu">
     <li><a href="#" data-action="addfile">New File</a></li>
     <li><a href="#" data-action="adddir">New Folder</a></li>
-    <li class="divider"></li>
+	<li class="divider"></li>
     <li><a href="#" data-action="rename">Rename</a></li>
     <li><a href="#" data-action="delete">Delete</a></li>
   </ul>

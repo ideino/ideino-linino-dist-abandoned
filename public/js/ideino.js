@@ -263,7 +263,24 @@ $(function($) {
               }
             }
           }));		  
-        }
+        },
+		//HTML Editor menù item
+		'runeditor': function(item) {
+		  var w = 1280;
+		  var h = 720;
+		  var l = Math.floor((screen.width-w)/2);
+		  var t = Math.floor((screen.height-h)/2);
+		   
+		  var win = window.open("/html_editor.html",item.attributes.name,"width=" + w + ",height=" + h + ",top=" + t + ",left=" + l,"resizable=yes");
+		  var title = "HTMLEditor - "+item.attributes.name;
+		  var arg1 = item.paths();
+		  
+		  win.addEventListener('DOMContentLoaded', function(){
+			setWindowTitle(win,title);
+			win.paths = arg1;
+			},false);
+        } 
+		 
       }[name].call(this, item);
     }
   });
@@ -274,3 +291,12 @@ $(function($) {
     model: ideino
   });
 });
+
+function setWindowTitle(win,title)
+{
+	if(win.document) { 
+        win.document.title = title; 
+    } else { 
+        setTimeout(setWindowTitle, 500); 
+    }
+}

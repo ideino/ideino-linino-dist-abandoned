@@ -1,0 +1,86 @@
+<html>
+	<head>
+		<title></title>
+		<style>
+			body{
+				  background: -webkit-radial-gradient(#B8B8B8, #FFFFFF, #B8B8B8); /* Safari 5.1 to 6.0 */
+				  background: -o-radial-gradient(#B8B8B8, #FFFFFF, #B8B8B8); /* For Opera 11.6 to 12.0 */
+				  background: -moz-radial-gradient(#B8B8B8, #FFFFFF, #B8B8B8); /* For Firefox 3.6 to 15 */
+				  background: radial-gradient(#B8B8B8, #FFFFFF, #B8B8B8); /* Standard syntax */
+				  
+				  background-repeat:no-repeat, repeat, repeat;
+			}
+		</style>
+		
+		<script src="tinymce/js/tinymce/tinymce.min.js" language="javascript" type="text/javascript"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script language="javascript" type="text/javascript">
+			var file_name = "";
+			var paths = "";
+			tinymce.init({
+				selector: "div.editable",
+
+				inline: true,
+				plugins: [
+					"save",
+					"advlist autolink lists link image charmap print preview anchor",
+					"searchreplace visualblocks code fullscreen",
+					"insertdatetime media table contextmenu paste"
+				],
+				toolbar: "save | insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+				save_enablewhendirty: true,
+				save_onsavecallback: exportPage,
+				fixed_toolbar_container : "#toolbar_div"
+			});
+						
+			function exportPage()
+			{
+				var page1 = tinyMCE.activeEditor.getContent().toString();
+				
+				page1 = page1.split("<p>&nbsp;</p>").join("<br></br>");
+							   
+				var filename = window.name;
+				if(filename!="undefined" && filename!="")
+				{
+					var html2save = "<html>"+"\n"+"<head>"+"\n"+"</head>"+"\n"+"<body>"+"\n"+tinyMCE.activeEditor.getBody().outerHTML+"\n"+"</body>"+"\n"+"</html>";
+					var page = html2save.replace(/contenteditable="true"/gi,'contenteditable="false"').replace(/>/gi,'>'+'\n');
+					
+					$.post('/fs/file', {
+						_method: 'put',
+						path: paths,
+						content: page
+					}, function(err) {
+						if(err) throw err;
+					});
+				}
+				else
+					alert("Inserire il nome del file!"); 	
+			}
+			
+			function openFile()
+			{
+				var filename = window.name;
+				var arg1 = encodeURIComponent(JSON.stringify(paths))
+				$.get('/fs/file?path=' + arg1, function(data) {
+					tinyMCE.activeEditor.setContent(data.replace(/contenteditable="false"/gi,'contenteditable="true"'));
+				});
+			}
+			
+			function loadFile(){
+				if(tinyMCE.activeEditor) { 
+					openFile(); 
+				} else { 
+					setTimeout(loadFile, 500); 
+				}
+			}; 
+			
+			window.onload = loadFile();
+			
+			
+		</script>
+	</head>
+	<body bgcolor="#97FCFC">
+	<div id="toolbar_div"></div>
+	<div id="editor"  class="editable" style="background-color:#ffffff">Create your file...</div>
+	</body>
+</html> 
