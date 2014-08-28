@@ -96,18 +96,12 @@ function exportPage(){
 	//var libs="";
 	page1 = page1.split("<p>&nbsp;</p>").join("<br></br>");
 				   
-	var filename = window.name; //document.getElementById("filename").value;
+	var filename = window.name; 
 	if(filename!="undefined" && filename!="")
 	{
-		//var items = sessionStorage.getItem('libs').split(',');
-		//for(var i=0;i<items.length;i++)
-		//{
-		//	libs = libs.concat("<script src='"+items[i]+"'></"+"script>"+"\n");
-		//}
 		var html2save = "<html>"+"\n"+"<head>"+"\n"+"</head>"+"\n"+"<body>"+"\n"+tinyMCE.activeEditor.getBody().outerHTML+"\n"+"</body>"+"\n"+"</html>";
 		var page = html2save.replace(/contenteditable="true"/gi,'contenteditable="false"').replace(/>/gi,'>'+'\n');
 		
-		//--//var args = ["/opt/ideino-linino/ideino/projects/user/examples","html",filename];
 		$.post('/fs/file', {
 			_method: 'put',
 			path: paths,
@@ -115,9 +109,6 @@ function exportPage(){
 		}, function(err) {
 			if(err) throw err;
 		});
-		
-		//sessionStorage.removeItem("libs");
-		//sessionStorage.removeItem("index");
 	}
 	else
 		alert("Inserire il nome del file!"); 	
@@ -126,7 +117,6 @@ function exportPage(){
 function openFile(){
 	var filename = window.name;
 	var arg1 = ["/opt/ideino-linino/ideino/projects/user/examples","html",filename]; 
-	//--//var arg2 = encodeURIComponent(JSON.stringify(arg1))
 	var arg2 = encodeURIComponent(JSON.stringify(paths))
 	$.get('/fs/file?path=' + arg2, function(data) {
 		tinyMCE.activeEditor.setContent(data.replace(/contenteditable="false"/gi,'contenteditable="true"'));
@@ -140,32 +130,6 @@ function loadFile(){
 		setTimeout(loadFile, 500); 
 	}
 };
-
-/*
-function importLib(){
-	var item;
-	
-	if(!sessionStorage.index)
-	{
-		sessionStorage.setItem('index', 0);
-	}
-	if(!sessionStorage.libs)
-	{
-		sessionStorage.setItem('libs','')
-	}
-	item = sessionStorage.getItem('libs').split(',');
-	item[sessionStorage.index] = document.getElementById('lib_path').value;
-	sessionStorage.index++;
-	sessionStorage.setItem('libs', item);
-}
-*/
-
-/*
-function addButton(){				
-		parent.insert_data(id, text, action);
-		top.tinymce.activeEditor.windowManager.close();
-};
-*/
 
 function insert_button(id,text,action){
 	my_editor.selection.setContent("<button type='button' id='"+id+"' onclick='"+action+"'>"+text+"</button>");
