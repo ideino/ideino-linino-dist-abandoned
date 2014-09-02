@@ -67,8 +67,9 @@ The board object has these embedded functions :
  - **[`analogWritens`](#analogwritens-pin-value-callback)**: send a value output to specified pwm pin.
  - **[`analogRead`](#analogread-pin-options-callback)**: get value from analog input pin.
  - **[`servoWrite`](#servowrite-pin-angle-callback)**: send degrees value to specified pwm pin.
- - **[`tone`](#analogwritens-pin-value-callback)**: send tone output to specified pwm pin. 
- - **[`noTone`](#analogwritens-pin-value-callback)**: send tone pause output to specified pwm pin.
+ - **[`map`](#map-value-fromlow-fromhigh-tolow-tohigh)**: Maps an integer value from one range to another.
+ - **[`tone`](#tone-pin-frequency-duration-callback)**: send tone output to specified pwm pin. 
+ - **[`noTone`](#notone-pin-callback)**: send tone pause output to specified pwm pin.
 
 ##### **connect (callback)**
 It is the first function you must call before start working with your board. You will usually write your code inside the `callback` function that will be triggered once the board it's ready to be used : 
