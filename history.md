@@ -6,6 +6,8 @@ lininoIO
 
 * upd: introducing servo lib
 
+* upd: adapting servo and pwm to work in nanoseconds
+
 0.0.6
 ==================
 * upd: use mcu-io technology instead of bridge firmata
