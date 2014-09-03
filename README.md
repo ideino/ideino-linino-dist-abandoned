@@ -48,12 +48,12 @@ The board object has these main properties :
     - **.OUTPUT** is the output operating mode of a digital pin.
     - **.INPUT**  is the input operating mode of a digital pin (analog are in input mode by default).
     - **.PWM** is the pwm operating mode of a digital pin. 
-    - **.SERVO** **_//TODO_**
+    - **.SERVO** is the servo operating mode of a digital pin.
  - **pin**: contains all the available pins of the board, grouped by typology :
     - **.digital** 
     - **.analog**
     - **.pwm**
-    - **.servo** **_//TODO_**
+    - **.servo**
  - **logger**: is the log object used by the library with _info_, _debug_ and _error_ level, console and file appender (see advanced configuration)
  - **model**: is the model name of the board
 
