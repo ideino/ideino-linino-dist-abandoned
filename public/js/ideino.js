@@ -271,6 +271,8 @@ $(function($) {
 		  var l = Math.floor((screen.width-w)/2);
 		  var t = Math.floor((screen.height-h)/2);
 		   
+		   _openFile(item);
+		   
 		  var win = window.open("/html_editor.html",item.attributes.name,"width=" + w + ",height=" + h + ",top=" + t + ",left=" + l,"resizable=yes");
 		  var title = "HTMLEditor - "+item.attributes.name;
 		  var arg1 = item.paths();

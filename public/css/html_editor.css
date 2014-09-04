@@ -121,3 +121,6 @@ body{
 				  
 				  background-color : #A9A9A9;
 			}
+div.editable{
+min-height: 400px
+}
